@@ -1,12 +1,13 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Web;
 using Net8BlazorServer.Data;
+using Host = Net8BlazorServer.Host;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddServerSideBlazor();
+builder.Services.AddRazorComponents().AddServerComponents();
 builder.Services.AddSingleton<WeatherForecastService>();
 
 var app = builder.Build();
@@ -25,7 +26,6 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.MapBlazorHub();
-app.MapFallbackToPage("/_Host");
+app.MapRazorComponents<Host>().AddServerRenderMode();
 
 app.Run();
