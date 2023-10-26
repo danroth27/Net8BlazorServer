@@ -10,10 +10,10 @@
     <link href="css/site.css" rel="stylesheet" />
     <link href="Net8BlazorServer.styles.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png"/>
-    <HeadOutlet @rendermode="@RenderMode.Server" />
+    <HeadOutlet @rendermode="InteractiveServer" />
 </head>
 <body>
-    <Routes @rendermode="@RenderMode.Server" />
+    <Routes @rendermode="InteractiveServer" />
 
     <div id="blazor-error-ui">
         @if (Env.IsDevelopment())
